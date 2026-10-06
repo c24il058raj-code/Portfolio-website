@@ -6,12 +6,60 @@ const menuToggle = document.getElementById('menu-toggle');
 const navList = document.getElementById('nav-links');
 const navLinks = navList.querySelectorAll('a');
 
+/* ---------- Logo scramble ---------- */
+
+const logo = navbar.querySelector('.logo');
+const logoLetters = logo.querySelectorAll('span');
+const scrambleChars = '!<>-_\\/[]{}=+*^?#$%&@01';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let scrambling = false;
+
+logoLetters.forEach(span => {
+    span.dataset.char = span.textContent;
+});
+
+function scrambleLogo() {
+    if (scrambling || reduceMotion.matches) return;
+    scrambling = true;
+
+    const start = performance.now();
+    let lastSwap = 0;
+
+    const tick = now => {
+        const elapsed = now - start;
+        // Swap random characters every 50ms so the flicker stays readable
+        const swap = now - lastSwap > 50;
+        if (swap) lastSwap = now;
+
+        let done = true;
+        logoLetters.forEach((span, i) => {
+            // Letters lock in left to right
+            if (elapsed >= 500 + i * 250) {
+                span.textContent = span.dataset.char;
+                span.classList.remove('scrambling');
+            } else {
+                done = false;
+                span.classList.add('scrambling');
+                if (swap) span.textContent = scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+            }
+        });
+
+        if (done) scrambling = false;
+        else requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+}
+
+scrambleLogo();
+logo.addEventListener('mouseenter', scrambleLogo);
+
 /* ---------- Mobile menu ---------- */
 
 function setMenu(open) {
     navList.classList.toggle('open', open);
     menuToggle.setAttribute('aria-expanded', open);
-    menuToggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    menuToggle.setAttribute('aria-label', open ? t('menuClose') : t('menuOpen'));
     menuToggle.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
 }
 
@@ -62,6 +110,8 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
+        // Once faded in, drop the reveal classes so the element's own hover transform/transitions apply again
+        setTimeout(() => entry.target.classList.remove('reveal', 'visible'), reduceMotion.matches ? 0 : 700);
     });
 }, { threshold: 0.15 });
 
@@ -117,6 +167,30 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') showShot(currentShot + 1);
 });
 
+/* ---------- Copy email address ---------- */
+
+const copyBtn = document.getElementById('copy-email');
+const copyStatus = document.getElementById('copy-status');
+let copyTimer;
+
+copyBtn.addEventListener('click', async () => {
+    try {
+        await navigator.clipboard.writeText(copyBtn.dataset.email);
+        copyStatus.textContent = t('copied');
+        copyBtn.classList.add('copied');
+        copyBtn.querySelector('i').className = 'fas fa-check';
+    } catch {
+        copyStatus.textContent = t('copyFailed');
+    }
+
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => {
+        copyStatus.textContent = '';
+        copyBtn.classList.remove('copied');
+        copyBtn.querySelector('i').className = 'far fa-copy';
+    }, 2000);
+});
+
 /* ---------- Age and footer year stay up to date ---------- */
 
 const birthday = new Date(2001, 2, 28); // 2001-03-28 (month is 0-based)
@@ -129,3 +203,56 @@ if (!hadBirthday) age--;
 
 document.getElementById('age').textContent = age;
 document.getElementById('year').textContent = today.getFullYear();
+
+/* ---------- Language switch (JA / EN) ---------- */
+
+// Japanese is written in index.html; English comes from EN_TEXT / UI_STRINGS in i18n.js
+const langSwitch = document.getElementById('lang-switch');
+let currentLang = 'ja';
+const jaTitle = document.title;
+
+function t(key) {
+    return UI_STRINGS[currentLang][key];
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.title = lang === 'en' ? EN_TEXT['page.title'] : jaTitle;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        // Remember the Japanese the first time so we can switch back
+        if (el.dataset.ja === undefined) el.dataset.ja = el.innerHTML;
+        const en = EN_TEXT[el.dataset.i18n];
+        el.innerHTML = lang === 'en' && en !== undefined ? en : el.dataset.ja;
+    });
+
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const [attr, key] = el.dataset.i18nAttr.split(':');
+        if (el.dataset.jaAttr === undefined) el.dataset.jaAttr = el.getAttribute(attr);
+        const en = EN_TEXT[key];
+        el.setAttribute(attr, lang === 'en' && en !== undefined ? en : el.dataset.jaAttr);
+    });
+
+    // The button always shows the language you can switch TO
+    langSwitch.querySelector('span').textContent = lang === 'ja' ? 'EN' : 'JA';
+    langSwitch.setAttribute('aria-label', lang === 'ja' ? 'Switch to English' : '日本語に切り替える');
+
+    // The intro text was replaced, so put the age back; refresh the menu button label too
+    document.getElementById('age').textContent = age;
+    setMenu(navList.classList.contains('open'));
+
+    try {
+        localStorage.setItem('lang', lang);
+    } catch {}
+}
+
+langSwitch.addEventListener('click', () => {
+    setLanguage(currentLang === 'ja' ? 'en' : 'ja');
+});
+
+let savedLang = null;
+try {
+    savedLang = localStorage.getItem('lang');
+} catch {}
+if (savedLang === 'en') setLanguage('en');
