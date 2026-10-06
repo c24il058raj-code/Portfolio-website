@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Satya Raj B K のポートフォリオサイト。奈良コンピュータ専門学校でITを学び、フルスタックエンジニアを目指しています。">
-    <title>Satya Raj B K | Portfolio</title>
+    <meta name="description" content="ビ ケ サッチャ ラーズ のポートフォリオサイト。奈良コンピュータ専門学校でITを学び、フルスタックエンジニアを目指しています。">
+    <title>ビ ケ サッチャ ラーズ | Portfolio</title>
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:site_name" content="Satya Raj B K | Portfolio">
-    <meta property="og:title" content="Satya Raj B K | Portfolio">
+    <meta property="og:site_name" content="ビ ケ サッチャ ラーズ | Portfolio">
+    <meta property="og:title" content="ビ ケ サッチャ ラーズ | Portfolio">
     <meta property="og:description" content="ネパール出身、奈良コンピュータ専門学校でITを学ぶ学生。フルスタックエンジニアを目指しています。">
     <meta property="og:url" content="https://c24il058raj-code.github.io/Portfolio-website/">
     <meta property="og:image" content="https://c24il058raj-code.github.io/Portfolio-website/photo.JPG">
-    <meta property="og:image:alt" content="Satya Raj B K のプロフィール写真">
+    <meta property="og:image:alt" content="ビ ケ サッチャ ラーズ のプロフィール写真">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231f242d'/><text x='50' y='66' font-size='44' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23c9fb24'>SR</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,11 +20,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="i18n.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <header class="navbar" id="navbar">
-        <a href="#home" class="logo">SRB</a>
+        <a href="#home" class="logo" aria-label="SRB"><span aria-hidden="true">S</span><span aria-hidden="true">R</span><span aria-hidden="true">B</span></a>
 
         <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-links">
             <i class="fas fa-bars"></i>
@@ -39,152 +40,184 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+
+        <button type="button" class="lang-switch" id="lang-switch" aria-label="Switch to English">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span>EN</span>
+        </button>
     </header>
 
     <main>
         <section class="home" id="home">
             <div class="home-info">
-                <p class="greeting">ようこそ！はじめまして</p>
-                <h1>SATYA RAJ B K</h1>
-                <p class="name-kana">ビ ケ サッチャ ラーズ</p>
-                <h2>Webデザイナー / フルスタック開発者を目指して</h2>
-                <p class="intro">
+                <p class="greeting" data-i18n="home.greeting">ようこそ！はじめまして</p>
+                <h1 data-i18n="home.name">ビ ケ サッチャ ラーズ</h1>
+                <h2 data-i18n="home.title">Webデザイナー / フルスタック開発者を目指して</h2>
+                <p class="intro" data-i18n="home.intro">
                     ネパール出身、<span id="age">25</span>歳です。
                     現在、奈良コンピュータ専門学校でITを学んでおり、HTML・CSS・JavaScript・PHP・C言語などを習得しながら、フルスタックWeb開発者を目指して日々勉強に励んでいます。
                 </p>
 
                 <div class="home-buttons">
-                    <a href="#contact" class="btn btn-primary">連絡する</a>
-                    <a href="#about" class="btn btn-outline">私について</a>
-                    <a href="resume.pdf" class="btn btn-outline" download><i class="fas fa-file-arrow-down"></i> 履歴書</a>                </div>
+                    <a href="#contact" class="btn btn-primary" data-i18n="home.contact">連絡する</a>
+                    <a href="#about" class="btn btn-outline" data-i18n="home.about">私について</a>
+                    <a href="resume.pdf" class="btn btn-outline" download data-i18n="home.resume"><i class="fas fa-file-arrow-down"></i> 履歴書</a>
+                </div>
 
                 <div class="home-social">
                     <a href="https://github.com/c24il058raj-code" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/satya-raj-b-k-540001412" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:c24il058.raj@gmail.com" aria-label="メールを送る"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:c24il058.raj@gmail.com" aria-label="メールを送る" data-i18n-attr="aria-label:home.mailLabel"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
 
             <div class="home-image">
                 <div class="img-box">
-                    <img src="photo.JPG" alt="Satya Raj B K のプロフィール写真">
+                    <img src="photo.JPG" alt="ビ ケ サッチャ ラーズ のプロフィール写真" data-i18n-attr="alt:home.photoAlt">
                 </div>
             </div>
         </section>
 
         <section class="about" id="about">
             <h2 class="heading">About <span>Me</span></h2>
-            <p class="section-lead">
-                はじめまして、Satya Rajです。現在、日本の奈良コンピュータ専門学校でITを勉強している学生です。将来は、フルスタックエンジニアを目指しています。
+            <p class="heading-ja">私について</p>
+            <p class="section-lead" data-i18n="about.lead">
+                はじめまして、ビ ケ サッチャ ラーズです。現在、日本の奈良コンピュータ専門学校でITを勉強している学生です。将来は、フルスタックエンジニアを目指しています。
             </p>
 
-            <h3 class="sub-heading">これまでの歩み</h3>
+            <h3 class="sub-heading" data-i18n="about.journey">これまでの歩み</h3>
             <ol class="timeline">
                 <li class="timeline-item reveal">
                     <span class="timeline-date">2021.10</span>
-                    <h4>工業高校 卒業 <small>ネパール</small></h4>
-                    <p>Don Bosco Institute Techo Lalitpur でITを学ぶ。3人チームのリーダーとして照明コントローラーを制作。</p>
+                    <h4 data-i18n="tl.1.title">工業高校 卒業 <small>ネパール</small></h4>
+                    <p data-i18n="tl.1.text">Don Bosco Institute Techo Lalitpur でITを学ぶ。3人チームのリーダーとして照明コントローラーを制作。</p>
                 </li>
                 <li class="timeline-item reveal">
                     <span class="timeline-date">2022.10</span>
-                    <h4>来日・日本語学校 入学</h4>
-                    <p>大和教育学院日本語学校で日本語を学ぶ（2024年3月卒業）。</p>
+                    <h4 data-i18n="tl.2.title">来日・日本語学校 入学</h4>
+                    <p data-i18n="tl.2.text">大和教育学院日本語学校で日本語を学ぶ（2024年3月卒業）。</p>
                 </li>
                 <li class="timeline-item reveal">
                     <span class="timeline-date">2024.04</span>
-                    <h4>奈良コンピュータ専門学校 入学</h4>
-                    <p>ITリテラシー科で HTML・CSS・JavaScript・PHP・C言語を学ぶ。</p>
+                    <h4 data-i18n="tl.3.title">奈良コンピュータ専門学校 入学</h4>
+                    <p data-i18n="tl.3.text">ITリテラシー科で HTML・CSS・JavaScript・PHP・C言語を学ぶ。</p>
                 </li>
                 <li class="timeline-item reveal">
                     <span class="timeline-date">2024.12 – 2026.07</span>
-                    <h4>資格取得</h4>
-                    <p>日本語能力試験 N3（2024.12）、N2（2025.07）、初級CAD検定（2026.07）に合格。</p>
+                    <h4 data-i18n="tl.4.title">資格取得</h4>
+                    <p data-i18n="tl.4.text">日本語能力試験 N3（2024.12）、N2（2025.07）、初級CAD検定（2026.07）に合格。</p>
                 </li>
                 <li class="timeline-item reveal">
                     <span class="timeline-date">2026</span>
-                    <h4>ポートフォリオサイト完成・家計管理アプリ開発中</h4>
-                    <p>授業に加えて、オンライン教材やYouTubeで独学を続けています。</p>
+                    <h4 data-i18n="tl.5.title">ポートフォリオサイト完成・家計管理アプリ開発中</h4>
+                    <p data-i18n="tl.5.text">授業に加えて、オンライン教材やYouTubeで独学を続けています。</p>
                 </li>
                 <li class="timeline-item future reveal">
                     <span class="timeline-date">2027.03</span>
-                    <h4>卒業見込</h4>
-                    <p>Web開発・システム開発のエンジニアとして働くことを目指しています。</p>
+                    <h4 data-i18n="tl.6.title">卒業見込</h4>
+                    <p data-i18n="tl.6.text">Web開発・システム開発のエンジニアとして働くことを目指しています。</p>
                 </li>
             </ol>
 
             <div class="about-grid">
                 <article class="about-card reveal">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>ITを始めたきっかけ</h3>
-                    <p>私がITに興味を持ったきっかけは、ネパールで初めてプログラミングを勉強したことです。そのとき、照明をコントロールする小さなプロジェクトを作りました。コードを書くことだけではなく、「なぜこのように動くのか」というプログラムの仕組みや考え方に興味を持ちました。そして、自分のアイデアが実際に動くものになることにも面白さを感じました。この経験から、もっと本格的にITを勉強したいと思うようになりました。</p>
+                    <div class="about-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="about-body">
+                        <h3 data-i18n="card.it.title">ITを始めたきっかけ</h3>
+                        <p data-i18n="card.it.text">私がITに興味を持ったきっかけは、ネパールで初めてプログラミングを勉強したことです。そのとき、照明をコントロールする小さなプロジェクトを作りました。コードを書くことだけではなく、「なぜこのように動くのか」というプログラムの仕組みや考え方に興味を持ちました。そして、自分のアイデアが実際に動くものになることにも面白さを感じました。この経験から、もっと本格的にITを勉強したいと思うようになりました。</p>
+                    </div>
                 </article>
 
                 <article class="about-card reveal">
-                    <i class="fas fa-plane"></i>
-                    <h3>日本に来た理由</h3>
-                    <p>私は、海外でITを勉強しながら、違う文化を経験し、自分自身にも挑戦したいと思い、日本に来ました。新しい言語を勉強したり、新しい環境に慣れたり、さまざまな国の人と出会ったりすることで、自分の成長につながったと感じています。また、一人で生活することで、自立する力も身につけることができました。</p>
+                    <div class="about-icon"><i class="fas fa-plane"></i></div>
+                    <div class="about-body">
+                        <h3 data-i18n="card.japan.title">日本に来た理由</h3>
+                        <p data-i18n="card.japan.text">私は、海外でITを勉強しながら、違う文化を経験し、自分自身にも挑戦したいと思い、日本に来ました。新しい言語を勉強したり、新しい環境に慣れたり、さまざまな国の人と出会ったりすることで、自分の成長につながったと感じています。また、一人で生活することで、自立する力も身につけることができました。</p>
+                    </div>
                 </article>
 
                 <article class="about-card reveal">
-                    <i class="fas fa-rocket"></i>
-                    <h3>今の挑戦</h3>
-                    <p>最近は、AIを使ってアイデアを実際のプロトタイプにすることにも挑戦しています。現在取り組んでいるプロジェクトの一つは、収入や支出を管理する家計管理アプリです。メールに届いた買い物などの情報を読み取り、自動で記録できるようにするほか、ユーザーが手動で入力することもできます。将来的にはこのアプリをApp Storeで公開したいと考えており、アプリを実際に公開するまでの流れについても学びたいと思っています。</p>
+                    <div class="about-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="about-body">
+                        <h3 data-i18n="card.now.title">今の挑戦</h3>
+                        <p data-i18n="card.now.text">最近は、AIを使ってアイデアを実際のプロトタイプにすることにも挑戦しています。現在取り組んでいるプロジェクトの一つは、収入や支出を管理する家計管理アプリです。メールに届いた買い物などの情報を読み取り、自動で記録できるようにするほか、ユーザーが手動で入力することもできます。将来的にはこのアプリをApp Storeで公開したいと考えており、アプリを実際に公開するまでの流れについても学びたいと思っています。</p>
+                    </div>
                 </article>
 
                 <article class="about-card reveal">
-                    <i class="fas fa-music"></i>
-                    <h3>趣味</h3>
-                    <p>IT以外では、音楽を聴いたり、映画を見たり、旅行をしたりすることが好きです。友達とハイキングに行くことも好きで、歌うことも好きです。ときどきカラオケにも行きます。</p>
+                    <div class="about-icon"><i class="fas fa-music"></i></div>
+                    <div class="about-body">
+                        <h3 data-i18n="card.hobby.title">趣味</h3>
+                        <h4 data-i18n="hobby.music.title">🎵 音楽・歌</h4>
+                        <p data-i18n="hobby.music.text">IT以外では、音楽を聴いたり、歌ったりすることが好きです。普段は、英語、ネパール語、ヒンディー語の曲をよく聴きます。特に、インディー・アコースティック、インディー・ポップ、ポップなどのジャンルが好きです。🎶</p>
+                        <details class="project-more hobby-more">
+                            <summary><span class="more-open" data-i18n="more.open">詳しく見る</span><span class="more-close" data-i18n="more.close">閉じる</span> <i class="fas fa-chevron-down"></i></summary>
+
+                            <h4 data-i18n="hobby.movies.title">🎬 映画</h4>
+                            <p data-i18n="hobby.movies.text1">映画を見ることも好きです。特に、ストーリーが面白い映画なら、ジャンルに関係なく楽しみます。好きなジャンルは、ホラー、アクション、アドベンチャーです。</p>
+                            <p data-i18n="hobby.movies.text2">今まで見た映画の中で、特に印象に残っているのは<strong>「アバター」</strong>です。🌌 初めて見たとき、映画の映像の美しさと迫力にとても驚きました。まるで別の世界にいるような感覚で、とても感動したのを覚えています。</p>
+
+                            <h4 data-i18n="hobby.travel.title">🥾 旅行・ハイキング</h4>
+                            <p data-i18n="hobby.travel.text1">私は旅行とハイキングも大好きです。新しい場所を訪れたり、自然の中を歩いたりすることが好きです。🌿🏔️</p>
+                            <p data-i18n="hobby.travel.text2">私が一番怖いと思っていることは、<strong>「世界中のいろいろな場所を見ないまま人生を終えること」</strong>です。🌏</p>
+                            <p data-i18n="hobby.travel.text3">日本に来てからは、<strong>滋賀県にある蓬莱山（ほうらいさん）や葛城山（かつらぎさん）</strong>などでハイキングをしました。また、淡路島、和歌山、滋賀、京都、奈良、三重などにも行きました。</p>
+                            <p data-i18n="hobby.travel.text4">これからも日本のいろいろな場所を訪れ、そしていつか世界中を旅行してみたいです。✈️🌏</p>
+                        </details>
+                    </div>
                 </article>
             </div>
 
             <blockquote class="motto reveal">
                 <i class="fas fa-quote-left"></i>
-                <p>私は毎日、興味を持ったことに挑戦し、新しいことを学ぶことを大切にしています。失敗は終わりではなく、成功に近づくための一つの経験だと考えています。これからも失敗を恐れず、新しいことに挑戦し、意味のあるものを作りながら、毎日少しずつ成長していきたいです。</p>
+                <p data-i18n="motto">私は毎日、興味を持ったことに挑戦し、新しいことを学ぶことを大切にしています。失敗は終わりではなく、成功に近づくための一つの経験だと考えています。これからも失敗を恐れず、新しいことに挑戦し、意味のあるものを作りながら、毎日少しずつ成長していきたいです。</p>
             </blockquote>
         </section>
 
         <section class="projects" id="projects">
             <h2 class="heading">My <span>Projects</span></h2>
+            <p class="heading-ja">制作物</p>
 
             <div class="projects-container">
                 <article class="project-box featured reveal">
                     <div class="project-info">
-                        <span class="project-status">開発中</span>
-                        <h3>家計管理アプリ <small>Finance Tracker</small></h3>
-                        <p>収入や支出を管理するアプリ。メールに届いた買い物情報を読み取って自動で記録し、手動入力にも対応。将来的にApp Storeでの公開を目指しています。</p>
+                        <span class="project-status" data-i18n="status.dev">開発中</span>
+                        <h3 data-i18n="finance.title">家計管理アプリ <small>Finance Tracker</small></h3>
+                        <p data-i18n="finance.text">収入や支出を管理するアプリ。メールに届いた買い物情報を読み取って自動で記録し、手動入力にも対応。将来的にApp Storeでの公開を目指しています。アプリの紹介サイトもAIを活用して制作し、Netlifyで公開しています。</p>
                         <ul class="feature-list">
-                            <li><i class="fas fa-chart-pie"></i> 日次・月次・四半期・年次で収支と貯蓄額を確認</li>
-                            <li><i class="fas fa-list"></i> 取引履歴の検索・収入／支出の絞り込み</li>
-                            <li><i class="fas fa-bullseye"></i> カテゴリごとの予算設定と使用状況の表示</li>
-                            <li><i class="fas fa-envelope-open-text"></i> Gmailと連携し、レシートメールから自動記録</li>
+                            <li data-i18n="finance.f1"><i class="fas fa-chart-pie"></i> 日次・月次・四半期・年次で収支と貯蓄額を確認</li>
+                            <li data-i18n="finance.f2"><i class="fas fa-list"></i> 取引履歴の検索・収入／支出の絞り込み</li>
+                            <li data-i18n="finance.f3"><i class="fas fa-bullseye"></i> カテゴリごとの予算設定と使用状況の表示</li>
+                            <li data-i18n="finance.f4"><i class="fas fa-envelope-open-text"></i> Gmailと連携し、レシートメールから自動記録</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://phinancetracker.netlify.app" target="_blank" rel="noopener" data-i18n="finance.site"><i class="fas fa-arrow-up-right-from-square"></i> アプリの紹介サイトを見る</a>
+                        </div>
                     </div>
 
                     <div class="screenshots">
                         <figure>
-                            <button type="button" class="shot" aria-label="ホーム画面を拡大">
-                                <img src="images/finance/home.png" alt="家計管理アプリのホーム画面。月ごとの貯蓄額・収入・支出を表示" loading="lazy">
+                            <button type="button" class="shot" aria-label="ホーム画面を拡大" data-i18n-attr="aria-label:shot.home.label">
+                                <img src="images/finance/home.png" alt="家計管理アプリのホーム画面。月ごとの貯蓄額・収入・支出を表示" loading="lazy" data-i18n-attr="alt:shot.home.alt">
                             </button>
-                            <figcaption>ホーム</figcaption>
+                            <figcaption data-i18n="shot.home.caption">ホーム</figcaption>
                         </figure>
                         <figure>
-                            <button type="button" class="shot" aria-label="履歴画面を拡大">
-                                <img src="images/finance/history.png" alt="取引履歴画面。日付ごとの支出一覧と検索・絞り込み" loading="lazy">
+                            <button type="button" class="shot" aria-label="履歴画面を拡大" data-i18n-attr="aria-label:shot.history.label">
+                                <img src="images/finance/history.png" alt="取引履歴画面。日付ごとの支出一覧と検索・絞り込み" loading="lazy" data-i18n-attr="alt:shot.history.alt">
                             </button>
-                            <figcaption>履歴</figcaption>
+                            <figcaption data-i18n="shot.history.caption">履歴</figcaption>
                         </figure>
                         <figure>
-                            <button type="button" class="shot" aria-label="予算画面を拡大">
-                                <img src="images/finance/budget.png" alt="予算画面。カテゴリごとの予算と使用額のバー" loading="lazy">
+                            <button type="button" class="shot" aria-label="予算画面を拡大" data-i18n-attr="aria-label:shot.budget.label">
+                                <img src="images/finance/budget.png" alt="予算画面。カテゴリごとの予算と使用額のバー" loading="lazy" data-i18n-attr="alt:shot.budget.alt">
                             </button>
-                            <figcaption>予算</figcaption>
+                            <figcaption data-i18n="shot.budget.caption">予算</figcaption>
                         </figure>
                         <figure>
-                            <button type="button" class="shot" aria-label="レシート連携画面を拡大">
-                                <img src="images/finance/receipts.png" alt="Gmail連携画面。レシートメールの読み取りと登録" loading="lazy">
+                            <button type="button" class="shot" aria-label="レシート連携画面を拡大" data-i18n-attr="aria-label:shot.receipts.label">
+                                <img src="images/finance/receipts.png" alt="Gmail連携画面。レシートメールの読み取りと登録" loading="lazy" data-i18n-attr="alt:shot.receipts.alt">
                             </button>
-                            <figcaption>レシート連携</figcaption>
+                            <figcaption data-i18n="shot.receipts.caption">レシート連携</figcaption>
                         </figure>
                     </div>
                 </article>
@@ -192,13 +225,12 @@
                 <article class="project-box wide reveal">
                     <div class="project-cover"><i class="fas fa-laptop-code"></i></div>
                     <div class="project-info">
-                        <span class="project-status done">公開中</span>
-                        <h3>ポートフォリオサイト</h3>
-                        <p>このサイトです。HTML・CSS・JavaScriptで作成し、スマートフォンにも対応したレスポンシブデザインにしています。</p>
+                        <span class="project-status done" data-i18n="status.live">公開中</span>
+                        <h3 data-i18n="portfolio.title">ポートフォリオサイト</h3>
+                        <p data-i18n="portfolio.text">このサイトです。HTML・CSS・JavaScriptで作成し、スマートフォンにも対応したレスポンシブデザインにしています。</p>
                         <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                         <div class="project-links">
-                            <a href="https://github.com/c24il058raj-code/Portfolio-website" target="_blank" rel="noopener"><i class="fab fa-github"></i> コードを見る</a>
-                            <a href="https://c24il058raj-code.github.io/Portfolio-website/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> サイトを見る</a>
+                            <a href="https://github.com/c24il058raj-code/Portfolio-website" target="_blank" rel="noopener" data-i18n="portfolio.code"><i class="fab fa-github"></i> コードを見る</a>
                         </div>
                     </div>
                 </article>
@@ -206,15 +238,15 @@
                 <article class="project-box wide reveal">
                     <div class="project-cover"><i class="fas fa-lightbulb"></i></div>
                     <div class="project-info">
-                        <span class="project-status done">完成</span>
-                        <h3>照明コントロール</h3>
-                        <p>高校時代、3人チームのリーダーとして、Arduinoで照明の明るさを調整するコントローラーを制作。私はC言語でのプログラミングを担当しました。</p>
-                        <div class="tags"><span>Arduino</span><span>C言語</span><span>チームリーダー</span></div>
+                        <span class="project-status done" data-i18n="status.done">完成</span>
+                        <h3 data-i18n="light.title">照明コントロール</h3>
+                        <p data-i18n="light.text">高校時代、3人チームのリーダーとして、Arduinoで照明の明るさを調整するコントローラーを制作。私はC言語でのプログラミングを担当しました。</p>
+                        <div class="tags"><span>Arduino</span><span data-i18n="light.tagC">C言語</span><span data-i18n="light.tagLeader">チームリーダー</span></div>
                         <details class="project-more">
-                            <summary><span class="more-open">詳しく見る</span><span class="more-close">閉じる</span> <i class="fas fa-chevron-down"></i></summary>
-                            <p>高校時代、私は3人のグループで「照明の明るさを調整するコントローラー」を作るプロジェクトのリーダーを務めました。Arduinoを使用し、ランプやコンバーターなどの電子部品を組み合わせてシステムを作りました。私はC言語を使ったプログラミングを担当し、他のメンバーは電子部品の組み立てや配線を担当しました。</p>
-                            <p>プロジェクトの途中では、プログラムのエラーや電子部品が正しく動作しないなど、いくつかの問題が発生しました。そこで、インターネットでプログラムや回路について調べ、別の方法を試しながら問題を解決しました。何度も失敗しましたが、メンバーと協力して改善を続け、最終的にプロジェクトを完成させることができました。そして、完成した装置を先生に提出しました。</p>
-                            <p>この経験を通して、プログラミングや電子部品の問題を解決する力だけでなく、チームをまとめて最後までプロジェクトを進めるリーダーシップも身につけました。</p>
+                            <summary><span class="more-open" data-i18n="more.open">詳しく見る</span><span class="more-close" data-i18n="more.close">閉じる</span> <i class="fas fa-chevron-down"></i></summary>
+                            <p data-i18n="light.more1">高校時代、私は3人のグループで「照明の明るさを調整するコントローラー」を作るプロジェクトのリーダーを務めました。Arduinoを使用し、ランプやコンバーターなどの電子部品を組み合わせてシステムを作りました。私はC言語を使ったプログラミングを担当し、他のメンバーは電子部品の組み立てや配線を担当しました。</p>
+                            <p data-i18n="light.more2">プロジェクトの途中では、プログラムのエラーや電子部品が正しく動作しないなど、いくつかの問題が発生しました。そこで、インターネットでプログラムや回路について調べ、別の方法を試しながら問題を解決しました。何度も失敗しましたが、メンバーと協力して改善を続け、最終的にプロジェクトを完成させることができました。そして、完成した装置を先生に提出しました。</p>
+                            <p data-i18n="light.more3">この経験を通して、プログラミングや電子部品の問題を解決する力だけでなく、チームをまとめて最後までプロジェクトを進めるリーダーシップも身につけました。</p>
                         </details>
                     </div>
                 </article>
@@ -223,93 +255,113 @@
 
         <section class="skills" id="skills">
             <h2 class="heading">My <span>Skills</span></h2>
+            <p class="heading-ja">スキル</p>
 
-            <h3 class="sub-heading">プログラミングスキル</h3>
-            <div class="skills-container">
-                <div class="skill-box reveal">
-                    <i class="fab fa-html5"></i>
-                    <p>HTML</p>
+            <h3 class="sub-heading" data-i18n="skills.tech">技術スキル</h3>
+            <div class="skill-groups">
+                <div class="skill-group reveal">
+                    <h4 data-i18n="skills.frontend"><i class="fas fa-display"></i> フロントエンド</h4>
+                    <ul class="skill-list">
+                        <li><span class="skill-icon"><i class="fab fa-html5"></i></span> HTML</li>
+                        <li><span class="skill-icon"><i class="fab fa-css3-alt"></i></span> CSS</li>
+                        <li><span class="skill-icon"><i class="fab fa-js"></i></span> JavaScript</li>
+                    </ul>
                 </div>
-                <div class="skill-box reveal">
-                    <i class="fab fa-css3-alt"></i>
-                    <p>CSS</p>
+
+                <div class="skill-group reveal">
+                    <h4 data-i18n="skills.backend"><i class="fas fa-server"></i> バックエンド・その他</h4>
+                    <ul class="skill-list">
+                        <li><span class="skill-icon"><i class="fab fa-php"></i></span> PHP</li>
+                        <li>
+                            <span class="skill-icon">
+                                <svg viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                                    <text x="24" y="31" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="currentColor">C</text>
+                                </svg>
+                            </span>
+                            <span data-i18n="skills.c">C言語</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="skill-box reveal">
-                    <i class="fab fa-js"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-box reveal">
-                    <i class="fab fa-php"></i>
-                    <p>PHP</p>
-                </div>
-                <div class="skill-box reveal">
-                    <svg class="skill-logo" viewBox="0 0 48 48" aria-hidden="true">
-                        <path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-                        <text x="24" y="31" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="800" fill="currentColor">C</text>
-                    </svg>
-                    <p>C言語</p>
+
+                <div class="skill-group reveal">
+                    <h4 data-i18n="skills.tools"><i class="fas fa-toolbox"></i> ツール</h4>
+                    <ul class="skill-list">
+                        <li><span class="skill-icon"><i class="fab fa-git-alt"></i></span> Git / GitHub</li>
+                        <li><span class="skill-icon"><i class="fas fa-code"></i></span> VS Code</li>
+                        <li><span class="skill-icon"><i class="fas fa-robot"></i></span> <span data-i18n="skills.ai">AIツール</span></li>
+                    </ul>
                 </div>
             </div>
 
-            <h3 class="sub-heading">言語スキル</h3>
+            <h3 class="sub-heading" data-i18n="skills.languages">言語スキル</h3>
             <div class="language-skills">
                 <div class="language-skill-box reveal">
                     <span class="lang-code">NE</span>
-                    <p class="lang-name">ネパール語</p>
-                    <span class="lang-level">母国語</span>
+                    <p class="lang-name" data-i18n="lang.ne">ネパール語</p>
+                    <span class="lang-level" data-i18n="lang.native">母国語</span>
                 </div>
                 <div class="language-skill-box reveal">
                     <span class="lang-code">JA</span>
-                    <p class="lang-name">日本語</p>
+                    <p class="lang-name" data-i18n="lang.ja">日本語</p>
                     <span class="lang-level">JLPT N2</span>
                 </div>
                 <div class="language-skill-box reveal">
                     <span class="lang-code">EN</span>
-                    <p class="lang-name">英語</p>
-                    <span class="lang-level">中上級</span>
+                    <p class="lang-name" data-i18n="lang.en">英語</p>
+                    <span class="lang-level" data-i18n="lang.upperInt">中上級</span>
                 </div>
                 <div class="language-skill-box reveal">
                     <span class="lang-code">HI</span>
-                    <p class="lang-name">ヒンディー語</p>
-                    <span class="lang-level">中上級</span>
+                    <p class="lang-name" data-i18n="lang.hi">ヒンディー語</p>
+                    <span class="lang-level" data-i18n="lang.upperInt">中上級</span>
                 </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me</span></h2>
-            <p class="section-lead">ご興味を持っていただき、ありがとうございます。お気軽にご連絡ください。</p>
+            <p class="heading-ja">お問い合わせ</p>
+            <div class="contact-card reveal">
+                <div class="contact-icon"><i class="fas fa-paper-plane"></i></div>
+                <h3 data-i18n="contact.title">一緒にお仕事できるのを楽しみにしています</h3>
+                <p data-i18n="contact.text">ご興味を持っていただき、ありがとうございます。お気軽にご連絡ください。</p>
 
-            <div class="contact-info">
-                <a href="mailto:c24il058.raj@gmail.com">
-                    <i class="fas fa-envelope"></i> c24il058.raj@gmail.com
-                </a>
-                <a href="https://github.com/c24il058raj-code" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/satya-raj-b-k-540001412?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <span class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i> 大阪府大阪市
-                </span>
+                <div class="contact-actions">
+                    <a href="mailto:c24il058.raj@gmail.com" class="btn btn-primary" data-i18n="contact.send"><i class="fas fa-envelope"></i> メールを送る</a>
+                    <div class="email-copy">
+                        <span>c24il058.raj@gmail.com</span>
+                        <button type="button" class="copy-btn" id="copy-email" data-email="c24il058.raj@gmail.com" aria-label="メールアドレスをコピー" data-i18n-attr="aria-label:contact.copyLabel">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="copy-status" id="copy-status" aria-live="polite"></p>
+
+                <div class="contact-footer">
+                    <div class="contact-social">
+                        <a href="https://github.com/c24il058raj-code" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/satya-raj-b-k-540001412" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span class="contact-location" data-i18n="contact.location"><i class="fas fa-map-marker-alt"></i> 大阪府大阪市</span>
+                </div>
             </div>
         </section>
     </main>
 
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="スクリーンショット" hidden>
-        <button type="button" class="lightbox-close" aria-label="閉じる"><i class="fas fa-xmark"></i></button>
-        <button type="button" class="lightbox-nav prev" aria-label="前の画像"><i class="fas fa-chevron-left"></i></button>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="スクリーンショット" data-i18n-attr="aria-label:lightbox.label" hidden>
+        <button type="button" class="lightbox-close" aria-label="閉じる" data-i18n-attr="aria-label:lightbox.close"><i class="fas fa-xmark"></i></button>
+        <button type="button" class="lightbox-nav prev" aria-label="前の画像" data-i18n-attr="aria-label:lightbox.prev"><i class="fas fa-chevron-left"></i></button>
         <figure>
             <img src="" alt="">
             <figcaption></figcaption>
         </figure>
-        <button type="button" class="lightbox-nav next" aria-label="次の画像"><i class="fas fa-chevron-right"></i></button>
+        <button type="button" class="lightbox-nav next" aria-label="次の画像" data-i18n-attr="aria-label:lightbox.next"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <footer class="footer">
-        <p>&copy; <span id="year">2026</span> Satya Raj B K. All rights reserved.</p>
-        <a href="#home" class="back-to-top" aria-label="ページの先頭へ戻る"><i class="fas fa-arrow-up"></i></a>
+        <p>&copy; <span id="year">2026</span> <span data-i18n="footer.name">ビ ケ サッチャ ラーズ</span>. All rights reserved.</p>
+        <a href="#home" class="back-to-top" aria-label="ページの先頭へ戻る" data-i18n-attr="aria-label:footer.top"><i class="fas fa-arrow-up"></i></a>
     </footer>
 </body>
 </html>
