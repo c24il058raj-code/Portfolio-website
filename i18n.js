@@ -6,6 +6,13 @@ const EN_TEXT = {
     /* Browser tab title */
     'page.title': 'SATYA RAJ B K | Portfolio',
 
+    /* Navbar */
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.projects': 'Projects',
+    'nav.skills': 'Skills',
+    'nav.contact': 'Contact',
+
     /* Home */
     'home.greeting': 'Welcome! Nice to meet you',
     'home.name': 'SATYA RAJ B K',
@@ -82,6 +89,27 @@ const EN_TEXT = {
     'shot.receipts.caption': 'Receipt Sync',
     'finance.site': '<i class="fas fa-arrow-up-right-from-square"></i> Visit the App Website',
 
+    'wp.title': 'WordPress Website <small>Personal site · College class project</small>',
+    'wp.text': 'A self-introduction website I built with WordPress in my second year at vocational college. I used the Lightning theme and the VK Blocks plugin to create the pages, menus and layouts. Every image on the site is my own design, created in my first year with Adobe Illustrator and Adobe Photoshop.',
+    'wp.f1': '<i class="fas fa-sitemap"></i> Multi-level menu with parent and child pages (About Me, My Country &amp; Family, Life in Japan, etc.)',
+    'wp.f2': '<i class="fas fa-palette"></i> Customized the design with the Lightning theme and a child theme',
+    'wp.f3': '<i class="fas fa-cubes"></i> Built layouts such as buttons, columns and galleries with VK Blocks',
+    'wp.f4': '<i class="fas fa-pen-nib"></i> Features illustrations and a logo I made in Illustrator and Photoshop in my first year',
+    'wp.site': '<i class="fab fa-wordpress"></i> Visit the Site',
+    'wp.works': '<i class="fas fa-arrow-up-right-from-square"></i> View the Artwork Page',
+    'wpshot.watch.label': 'Enlarge the watch illustration',
+    'wpshot.watch.alt': 'Realistic wristwatch illustration drawn in Illustrator',
+    'wpshot.watch.caption': 'Watch',
+    'wpshot.flower.label': 'Enlarge the flower art',
+    'wpshot.flower.alt': 'Flower art drawn with Illustrator\'s Rotate tool',
+    'wpshot.flower.caption': 'Flower Art',
+    'wpshot.logo.label': 'Enlarge the logo',
+    'wpshot.logo.alt': 'Original logo with the letters S, R and B on a cube',
+    'wpshot.logo.caption': 'Logo',
+    'wpshot.town.label': 'Enlarge the town illustration',
+    'wpshot.town.alt': 'Town illustration with buildings, roads, buses and an airplane',
+    'wpshot.town.caption': 'Town Illustration',
+
     'portfolio.title': 'Portfolio Website',
     'portfolio.text': 'This website. Built with HTML, CSS and JavaScript, with a responsive design that also works on smartphones.',
     'portfolio.code': '<i class="fab fa-github"></i> View Code',
@@ -101,6 +129,7 @@ const EN_TEXT = {
     'skills.c': 'C',
     'skills.tools': '<i class="fas fa-toolbox"></i> Tools',
     'skills.ai': 'AI Tools',
+    'skills.design': '<i class="fas fa-palette"></i> Design &amp; CMS',
     'skills.languages': 'Languages',
     'lang.ne': 'Nepali',
     'lang.native': 'Native',
