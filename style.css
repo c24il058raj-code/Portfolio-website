@@ -820,6 +820,16 @@ html[lang="en"] .heading-ja {
     object-position: top;
 }
 
+/* Artwork thumbnails: centered crop instead of a phone-screen crop */
+.screenshots.works .shot {
+    background: #fff;
+}
+
+.screenshots.works .shot img {
+    aspect-ratio: 4 / 5;
+    object-position: center;
+}
+
 .screenshots figcaption {
     font-size: 13px;
     color: var(--text-muted);
@@ -889,15 +899,18 @@ html[lang="en"] .heading-ja {
 /* ---------- Skills ---------- */
 
 /* Skill cards grouped by category */
+/* Flex so an incomplete last row stays centered */
 .skill-groups {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 22px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .skill-group {
+    flex: 0 1 calc((100% - 44px) / 3);
     background: var(--card);
     border-radius: var(--radius);
     padding: 26px;
@@ -1322,8 +1335,11 @@ html[lang="en"] .heading-ja {
     }
 
     .skill-groups {
-        grid-template-columns: 1fr;
         max-width: 480px;
+    }
+
+    .skill-group {
+        flex-basis: 100%;
     }
 
     .about-card {
