@@ -122,7 +122,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 const lightboxCaption = lightbox.querySelector('figcaption');
-const shots = Array.from(document.querySelectorAll('.shot'));
+// Prev / next only move through the gallery that was clicked
+let shots = [];
 let currentShot = 0;
 let lastFocused = null;
 
@@ -148,8 +149,14 @@ function closeLightbox() {
     if (lastFocused) lastFocused.focus();
 }
 
-shots.forEach((shot, i) => {
-    shot.addEventListener('click', () => openLightbox(i));
+document.querySelectorAll('.screenshots').forEach(gallery => {
+    const galleryShots = Array.from(gallery.querySelectorAll('.shot'));
+    galleryShots.forEach((shot, i) => {
+        shot.addEventListener('click', () => {
+            shots = galleryShots;
+            openLightbox(i);
+        });
+    });
 });
 
 lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
